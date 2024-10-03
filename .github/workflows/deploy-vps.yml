@@ -57,7 +57,7 @@ jobs:
           source: ./publish/
           target: /home/adrian/doof/
           rsync: true
-          args: --exclude ".env" --exclude "*.db"
+          rsync-options: "--exclude=.env --exclude=*.db"
 
       # SSH into the VPS and run migration commands
       - name: Apply Migrations
