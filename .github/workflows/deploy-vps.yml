@@ -48,7 +48,7 @@ jobs:
 
       # Copy files to the server, excluding .env and DB
       - name: Copy files to VPS (Preserve .env and DB)
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
@@ -59,7 +59,7 @@ jobs:
 
       # SSH into the VPS and run migration commands
       - name: Apply Migrations
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
@@ -73,7 +73,7 @@ jobs:
 
       # Restart the service
       - name: Restart doof Service
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
