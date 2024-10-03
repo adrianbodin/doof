@@ -58,7 +58,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           source: "/home/runner/work/doof/doof/"
-          target: "/home/${{ secrets.HOST }}/doof/code/"
+          target: /home/${{ secrets.HOST }}/doof/code/
 
       # SSH into the VPS and run migration commands
       - name: Apply Migrations
