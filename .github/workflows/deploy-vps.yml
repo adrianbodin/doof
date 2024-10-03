@@ -46,9 +46,6 @@ jobs:
         with:
           name: publish
 
-      - name: List files in source directory
-        run: ls -al /home/runner/work/doof/doof/
-
       # Copy files to the server, excluding .env and DB
       - name: Copy files to VPS (Preserve .env and DB)
         uses: appleboy/scp-action@v0.1.7
@@ -69,7 +66,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/adrian/doof/code
+            cd ~/doof/code/github/workspace
             dotnet ef database update
 
       # Restart the service
@@ -81,5 +78,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/adrian/doof/code
             sudo systemctl restart doof.service
