@@ -46,6 +46,9 @@ jobs:
         with:
           name: publish
 
+      - name: List files in source directory
+        run: ls -al /home/runner/work/doof/doof/
+
 
       # Copy files to the server, excluding .env and DB
       - name: Copy files to VPS (Preserve .env and DB)
