@@ -1,0 +1,11 @@
+section {
+  display: grid;
+  place-items: center;
+  margin-top: 5rem;
+}
+
+.section-box {
+  width: min(100%, 700px);
+}
+
+/*# sourceMappingURL=RegisterConfirmation.cshtml.css.map */

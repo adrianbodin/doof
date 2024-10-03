@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace doof.Pages;
+namespace doof.Pages.Recipes;
 
 public class Recipes : PageModel
 {

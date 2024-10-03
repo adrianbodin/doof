@@ -493,6 +493,12 @@
       <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\scss\_variables-dark.scss" />
       <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\scss\_variables.scss" />
       <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+      <_ContentIncludedByDefault Remove="publish\web.config" />
+      <_ContentIncludedByDefault Remove="publish\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="publish\appsettings.json" />
+      <_ContentIncludedByDefault Remove="publish\doof.deps.json" />
+      <_ContentIncludedByDefault Remove="publish\doof.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="publish\doof.staticwebassets.endpoints.json" />
     </ItemGroup>
 
     <ItemGroup>
