@@ -12,7 +12,10 @@ using Microsoft.AspNetCore.Localization.Routing;
 
 var builder = WebApplication.CreateBuilder(args);
 
-DotNetEnv.Env.Load();
+if (builder.Environment.IsProduction())
+{
+    DotNetEnv.Env.Load("../data/.env");
+}
 
 //If it is in production, i will read env variables in the docker container
 //provided by a .env file and passed in the docker-compose.yml file.

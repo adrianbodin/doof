@@ -55,9 +55,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           source: ./publish/
-          target: /home/adrian/doof/
-          rsync: true
-          rsync-options: "--exclude=.env --exclude=*.db"
+          target: /home/adrian/doof/code
 
       # SSH into the VPS and run migration commands
       - name: Apply Migrations
@@ -68,7 +66,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/adrian/doof
+            cd /home/adrian/doof/code
             dotnet tool install --global dotnet-ef || true
             export PATH="$PATH:/root/.dotnet/tools"  # Ensure EF Core tools are available in the path
             dotnet ef database update
@@ -82,5 +80,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/adrian/doof
+            cd /home/adrian/doof/code
             sudo systemctl restart doof.service
