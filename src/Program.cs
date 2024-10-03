@@ -12,14 +12,16 @@ using Microsoft.AspNetCore.Localization.Routing;
 
 var builder = WebApplication.CreateBuilder(args);
 
+DotNetEnv.Env.Load();
+
 //If it is in production, i will read env variables in the docker container
 //provided by a .env file and passed in the docker-compose.yml file.
 var connectionString = builder.Environment.IsProduction()
-    ? Environment.GetEnvironmentVariable("SQL_SERVER_CONNECTION")!
-    : builder.Configuration["SQL_SERVER_CONNECTION"];
+    ? Environment.GetEnvironmentVariable("SQLITE_CONNECTION")!
+    : builder.Configuration["SQLITE_CONNECTION"];
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlite(connectionString));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
