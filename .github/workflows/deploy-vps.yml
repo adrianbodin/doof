@@ -47,8 +47,6 @@ jobs:
           name: publish
 
 
-      -
-
       # Copy files to the server, excluding .env and DB
       - name: Copy files to VPS (Preserve .env and DB)
         uses: appleboy/scp-action@v0.1.7
@@ -57,8 +55,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "/home/runner/work/doof/doof"
-          target: "/home/${{ secrets.HOST }}/doof/code"
+          source: "/home/runner/work/doof/doof/"
+          target: "/home/${{ secrets.HOST }}/doof/code/"
 
       # SSH into the VPS and run migration commands
       - name: Apply Migrations
