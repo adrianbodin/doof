@@ -46,9 +46,6 @@ jobs:
         with:
           name: publish
 
-      - name: List published files
-        run: ls -al ./publish/
-
       # Copy files to the server, excluding .env and DB
       - name: Copy files to VPS (Preserve .env and DB)
         uses: appleboy/scp-action@v0.1.7
