@@ -59,7 +59,6 @@ jobs:
           port: ${{ secrets.PORT }}
           source: ./publish/
           target: /home/adrian/doof/code
-        debug: true
 
       # SSH into the VPS and run migration commands
       - name: Apply Migrations
