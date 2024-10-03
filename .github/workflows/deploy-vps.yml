@@ -73,6 +73,7 @@ jobs:
             dotnet tool install --global dotnet-ef || true
             export PATH="$PATH:/root/.dotnet/tools"  # Ensure EF Core tools are available in the path
             dotnet ef database update
+
       # Restart the service
       - name: Restart doof Service
         uses: appleboy/ssh-action@v1.0.3
