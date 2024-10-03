@@ -70,8 +70,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /home/adrian/doof/code
-            dotnet tool install --global dotnet-ef || true
-            export PATH="$PATH:/root/.dotnet/tools"  # Ensure EF Core tools are available in the path
             dotnet ef database update
 
       # Restart the service
