@@ -50,7 +50,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "publish/"
+          source: "/home/runner/work/doof/doof/"
           target: "doof/code"
           rm: true
 
@@ -62,5 +62,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          # Might change this in the future
+          # Might change
           script: echo "${{ secrets.PW }}" | sudo -S systemctl restart doof.service
