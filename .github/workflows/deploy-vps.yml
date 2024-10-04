@@ -66,4 +66,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          script: sudo -tt systemctl restart doof.service
+          script: echo "${{ secrets.PW }}" | sudo -S systemctl restart doof.service
