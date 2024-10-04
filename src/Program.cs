@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 if (builder.Environment.IsProduction())
 {
-    DotNetEnv.Env.Load("../../data/.env");
+    DotNetEnv.Env.Load("../../../data/.env");
 }
 
 //If it is in production, i will read env variables in the docker container
