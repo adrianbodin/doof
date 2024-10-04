@@ -54,7 +54,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "/home/runner/work/doof/doof/publish/"
+          source: "/home/runner/work/doof/doof/"
           target: "~/doof/code"
 
       # Restart the service
