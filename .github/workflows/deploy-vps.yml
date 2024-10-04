@@ -5,20 +5,17 @@ on:
       - main
 
 jobs:
-  # Build Job
   build:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Setup Dotnet 8
+      - name: Setup Dotnet
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-
-      - name: Display Dotnet Version
-        run: dotnet --version
 
       - name: Restore Nuget Packages
         run: dotnet restore src
@@ -29,7 +26,6 @@ jobs:
       - name: Publish Application
         run: dotnet publish src -c Release -o publish --no-restore
 
-      # Upload the published files as an artifact for the deploy step
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -54,7 +50,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "/home/runner/work/doof/doof/"
+          source: "publish/"
           target: "doof/code"
           rm: true
 
@@ -66,4 +62,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
+          # Might change this in the future
           script: echo "${{ secrets.PW }}" | sudo -S systemctl restart doof.service
