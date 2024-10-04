@@ -54,20 +54,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          source: "/home/runner/work/doof/doof/"
-          target: "~/doof/code/"
-
-      # SSH into the VPS and run migration commands
-      - name: Apply Migrations
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd ~/doof/code/github/workspace
-            dotnet ef database update
+          source: "/home/runner/work/doof/doof/publish/"
+          target: "~/doof/code"
 
       # Restart the service
       - name: Restart doof Service
