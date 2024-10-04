@@ -56,6 +56,7 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "/home/runner/work/doof/doof/"
           target: "doof/code"
+          rm: true
 
       # Restart the service
       - name: Restart doof Service
