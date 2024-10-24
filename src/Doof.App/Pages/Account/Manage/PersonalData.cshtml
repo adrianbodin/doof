@@ -1,0 +1,33 @@
+﻿@page
+@using Doof.App.Pages.Account.Manage
+@model PersonalDataModel
+@{
+  ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+@section metatags
+{
+  <title>@Localizer["title"]</title>
+  <meta name="description" content="@Localizer["meta-desc"]"/>
+  <meta name="keywords" content="@Localizer["meta-keywords"]"/>
+  <meta name="author" content="doof"/>
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<section>
+  <p>@Localizer["p1"]</p>
+  <p>
+    <strong>@Localizer["p2"]</strong>
+  </p>
+  <form id="download-data" asp-page="DownloadPersonalData" method="post">
+    <button class="btn btn-primary" type="submit">@Localizer["download-btn"]</button>
+  </form>
+  <p>
+    <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">@Localizer["delete-btn"]</a>
+  </p>
+
+</section>
+@section Scripts {
+  <partial name="_ValidationScriptsPartial"/>
+}

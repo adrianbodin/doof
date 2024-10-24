@@ -1,0 +1,39 @@
+﻿@using System.Globalization
+<!DOCTYPE html>
+<html lang="@CultureInfo.CurrentCulture">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    @RenderSection("metatags", false)
+    <link rel="icon" href="~/favicon/favicon.ico" sizes="any">
+    <link rel="icon" href="~/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="~/favicon/apple-touch-icon.png">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="stylesheet" href="~/styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Doof.App.styles.css" asp-append-version="true">
+</head>
+<body>
+<header>
+    <a asp-area="" asp-page="/Index">doof</a>
+    <nav>
+        <ul>
+            <li>
+                <a asp-page="/Recipes">@Localizer["recipes"]</a>
+            </li>
+            <partial name="_LoginPartial"/>
+        </ul>
+    </nav>
+</header>
+<main role="main">
+        @RenderBody()
+</main>
+<footer>
+    <span>
+        &copy; 2024 - doof
+    </span>
+</footer>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

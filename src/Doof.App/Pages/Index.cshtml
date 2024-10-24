@@ -1,0 +1,47 @@
+﻿@page "/"
+@model Doof.App.Pages.IndexModel
+
+@section metatags{
+  <title>@Localizer["Title"] | Doof</title>
+  <meta name="description" content="Home page">
+  <meta name="keywords" content="Home, Index">
+  <meta name="author" content="doof">
+}
+
+<section class="hero-section">
+  <div>
+    <div>
+      <h1 class="hero-section__h1">@Localizer["hero"]</h1>
+    </div>
+    <div class="hero-section__under-text">
+      <p>@Localizer["hero-text"]</p>
+      <a asp-page="/recipes/index">
+        <button class="btn btn-primary">@Localizer["hero-button"]</button>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="why-doof">
+  <div>
+  <h2>@Localizer["why-title"]</h2>
+  <hr>
+  <ol>
+    <li>@Localizer["why-1"]</li>
+    <li>@Localizer["why-2"]</li>
+    <li>@Localizer["why-3"]</li>
+  </ol>
+  </div>
+</section>
+<section class="terry">
+  <div>
+    <img src="~/images/terry/terry-laying.png" alt="Image of terry, the carrot mascot laying down">
+    <h2>@Localizer["terry-title"]</h2>
+    <hr>
+    <h4>@Localizer["terry-subtitle"]</h4>
+    <ul>
+      <li>@Localizer["terry-1"]</li>
+      <li>@Localizer["terry-2"]</li>
+      <li>@Localizer["terry-3"]</li>
+    </ul>
+  </div>
+</section>

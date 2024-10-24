@@ -1,0 +1,33 @@
+﻿@page
+@model Doof.App.Pages.Account.Manage.IndexModel
+@section metatags
+{
+    <title>@Localizer["title"]</title>
+    <meta name="description" content="@Localizer["meta-desc"]"/>
+    <meta name="keywords" content="@Localizer["meta-keywords"]"/>
+    <meta name="author" content="doof"/>
+}
+
+<h1>@Localizer["title"]</h1>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div>
+    <div>
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="input-container">
+              <label asp-for="Username" class="form-label">@Localizer["username-label"]</label>
+              <input asp-for="Username" class="form-control" placeholder="@Localizer["username-placeholder"]" disabled/>
+            </div>
+            <div class="input-container">
+              <label asp-for="Input.PhoneNumber" class="form-label">@Localizer["phone-label"]</label>
+              <input asp-for="Input.PhoneNumber" class="form-control" placeholder="@Localizer["phone-placeholder"]"/>
+              <span asp-validation-for="Input.PhoneNumber" class="field-validation-error"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="btn btn-primary">@Localizer["save-button"]</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
