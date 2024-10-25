@@ -146,3 +146,5 @@ app.UseStatusCodePagesWithRedirects("/not-found");
 app.MapRazorPages();
 
 app.Run();
+
+public partial class Program { }
