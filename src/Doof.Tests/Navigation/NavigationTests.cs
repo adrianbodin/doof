@@ -11,7 +11,7 @@ public class NavigationTests : PlayWrightTest
 
         await Page.GetByTestId("navigate-login").ClickAsync();
 
-        Assert.IsTrue(Page.Url.Contains("login", StringComparison.OrdinalIgnoreCase));
+        Assert.That(Page.Url.Contains("login", StringComparison.OrdinalIgnoreCase));
     }
 
     [Test]
@@ -21,6 +21,6 @@ public class NavigationTests : PlayWrightTest
 
         await Page.GetByTestId("navigate-register").ClickAsync();
 
-        Assert.IsTrue(Page.Url.Contains("register", StringComparison.OrdinalIgnoreCase));
+        Assert.That(Page.Url.Contains("register", StringComparison.OrdinalIgnoreCase));
     }
 }

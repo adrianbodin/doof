@@ -8,17 +8,18 @@
     <link rel="icon" href="~/favicon/favicon.ico" sizes="any">
     <link rel="icon" href="~/favicon/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="~/favicon/apple-touch-icon.png">
-    <meta name="theme-color" content="#FFFFFF">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <meta name="htmx-config" includeAspNetAntiforgeryToken="true"/>
     <link rel="stylesheet" href="~/styles.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Doof.App.styles.css" asp-append-version="true">
 </head>
-<body>
+<body hx-boost="true" hx-target="main">
 <header>
     <a asp-area="" asp-page="/Index">doof</a>
     <nav>
         <ul>
             <li>
-                <a asp-page="/Recipes">@Localizer["recipes"]</a>
+                <a asp-page="/Recipes/Index">@Localizer["recipes"]</a>
             </li>
             <partial name="_LoginPartial"/>
         </ul>
@@ -33,6 +34,8 @@
     </span>
 </footer>
 
+<script src="~/js/htmx.min.js"></script>
+<script src="~/js/script.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
