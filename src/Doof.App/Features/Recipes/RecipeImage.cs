@@ -1,7 +1,6 @@
-﻿using Doof.App.Features.Recipes;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace doof.Features.Recipes;
+namespace Doof.App.Features.Recipes;
 
 public class RecipeImage
 {
@@ -15,8 +14,48 @@ public class RecipeImage
         builder.Entity<RecipeImage>(e =>
         {
             e.HasKey(ri => ri.Id);
-
-            e.Property(ri => ri.Url).HasMaxLength(50);
         });
+    }
+
+    public static void Seed(ModelBuilder builder)
+    {
+        builder.Entity<RecipeImage>().HasData(
+            new RecipeImage
+            {
+                Id = 1,
+                Url = "https://doofstorage.blob.core.windows.net/recipes/1_1.jpg",
+                RecipeId = 1
+            },
+            new RecipeImage
+            {
+                Id = 2,
+                Url = "https://doofstorage.blob.core.windows.net/recipes/1_2.jpg",
+                RecipeId = 1
+            },
+            new RecipeImage
+            {
+                Id = 3,
+                Url = "https://doofstorage.blob.core.windows.net/recipes/2_1.jpg",
+                RecipeId = 2
+            },
+            new RecipeImage
+            {
+                Id = 4,
+                Url = "https://doofstorage.blob.core.windows.net/recipes/2_2.jpg",
+                RecipeId = 2
+            },
+            new RecipeImage
+            {
+                Id = 5,
+                Url = "https://doofstorage.blob.core.windows.net/recipes/3_1.jpg",
+                RecipeId = 3
+            },
+            new RecipeImage
+            {
+                Id = 6,
+                Url = "https://doofstorage.blob.core.windows.net/recipes/3_2.jpg",
+                RecipeId = 3
+            }
+        );
     }
 }
