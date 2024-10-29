@@ -1,9 +1,9 @@
 ﻿using Doof.App.Features.Recipes;
-using doof.Features.Recipes;
+using Doof.App.Features.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace doof.Data;
+namespace Doof.App.Data;
 
 public class ApplicationDbContext : IdentityDbContext
 {
@@ -30,5 +30,16 @@ public class ApplicationDbContext : IdentityDbContext
         Tag.Configure(builder);
         TagTranslation.Configure(builder);
         RecipeStep.Configure(builder);
+
+
+        CustomUser.Seed(builder);
+        Recipe.Seed(builder);
+        RecipeTranslation.Seed(builder);
+        RecipeStep.Seed(builder);
+        RecipeImage.Seed(builder);
+        Tag.Seed(builder);
+        TagTranslation.Seed(builder);
+        Ingredient.Seed(builder);
+        IngredientTranslation.Seed(builder);
     }
 }
