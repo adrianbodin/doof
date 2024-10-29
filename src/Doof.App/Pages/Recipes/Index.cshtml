@@ -2,5 +2,11 @@
 @model Doof.App.Pages.Recipes.Recipes
 
 <section>
-    <h1>See</h1>
+  @foreach (var recipe in Model.Recipess)
+  {
+    <div>
+      <h2>@recipe.Id</h2>
+      <p>@recipe.AuthorId</p>
+    </div>
+  }
 </section>
